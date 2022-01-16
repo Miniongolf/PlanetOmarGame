@@ -26,9 +26,11 @@ e = {
     "accuracy": 0
 }
 
+locationInfo = [" - Muslims live all over the world.", " - Muslims worship one and only one god called Allah.", " - The majority of Muslims live in the Middle East, Asia, and Africa. But Muslims live around the world like in Canada and USA."]
 
+foodInfo = [" - Muslims can only eat Halal food (e.g. lamb, beef, chicken).", " - Muslims cannot eat pork or blood, or animals that harm other animals", " - Muslims eat Halal foods to follow their God's rules (as set in the Qur'an)."]
 
-clothingInfo = ["Information slide 1", "Information slide 2", "Information slide 3"]
+clothingInfo = [" - Muslim men wear ghutras on their heads.", " - Muslim women wear hijabs (headscarves) to maintain modesty.", " - Muslims dress modestly to respect and be connected to their religion."]
 
 
 # tutorials.introduction(user)
@@ -36,8 +38,18 @@ clothingInfo = ["Information slide 1", "Information slide 2", "Information slide
 # maze.maze(maze.house, maze.housel[:], 36, 3, sep = False)
 # tutorials.fightTutorial()
 # turnBattle.fight(1, p, e)
+# os.system("clear")
+# tutorials.mazeTutorial()
+# maze.maze(maze.location, maze.locationl[:], 0, 1, text=locationInfo)
+# tutorials.quizTutorial()
+# quiz.quiz(quiz.locationQuiz)
 os.system("clear")
-tutorials.mazeTutorial()
-maze.maze(maze.area, maze.mapl[:], 0, 1, text=clothingInfo)
-tutorials.quizTutorial()
-quiz.quiz(quiz.clothingQuiz)
+# tutorials.mazeTutorial()
+# maze.maze(maze.location, maze.locationl[:], 0, 1, text=foodInfo)
+# os.system("clear")
+# quiz.quiz(quiz.foodQuiz)
+maze.maze(maze.location, maze.locationl[:], 0, 1, text=clothingInfo)
+os.system("clear")
+quiz.quiz(quiz.clothingQuiz, last=True)
+
+

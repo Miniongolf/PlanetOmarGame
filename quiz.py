@@ -11,13 +11,19 @@ QandA = [["What country is Ottawa in?", "Canada", ["Canada", "USA", "France"]],
 ["What letter comes after A?", "B", ["D", "F", "B"]],
 ["What is 999^0?", "1", ["1", "999999999", "93638562847"]]]
 
-clothingQuiz = [["What is one type of traditional clothing female Muslims wear?", "Hijab", ["Hijab", "Thobe", "Ghutra"]],
-["What is one type of traditional clothing male Muslims wear?", "Ghutra", ["Ghutra", "Burqa", "Abaya"]],
-["Why do Muslim women wear headscarves?", "There are varying reasons from person to person",["Maintain modesty", "Be more connected to the religion", "There are varying reasons from person to person"]]]
+locationQuiz = [["Where do Muslims live?", "All around the world", ["All around the world", "Only in Asia", "Only in the Middle East"]],
+["How many gods do Muslims worship", "One", ["One", "Two", "Five"]]]
+
+foodQuiz = [["What food category can Muslims eat?", "Halal", ["Halal", "Kosher", "Vegan"]],
+["What type of meat can Muslims not eat due to religious reasons?", "Pork", ["Pork", "Chicken", "Lamb"]],
+["Why do Muslims only eat Halal food", "To follow their God's rules", ["To follow their God's rules", "It tastes better", "For fun"]]]
+
+clothingQuiz = [["What is one type of traditional clothing female Muslims wear?", "Hijab", ["Hijab", "Turban", "Blazer"]], ["What is one type of traditional clothing male Muslims wear?", "Ghutra", ["Ghutra", "Hijab", "Cap"]],
+["Why do Muslim women wear headscarves?", "To respect their religion",["To respect their religion", "For fun", "It looks pretty"]]]
 
 festivalsQuiz = [["During what festival do Muslims need to fast after sunrise to sunset?", "Ramadan", ["Ramadan", "Eid-ul-Fitr", "Al Hijra"]]]
 
-def quiz(Quiz):
+def quiz(Quiz, last=False):
     letters = "abcdefghijklmnopqrstuvwxyz"
 
     Qnums = list(range(len(Quiz)))
@@ -32,13 +38,13 @@ def quiz(Quiz):
             if letters.find(response) < 3:
                 response = question[2][letters.find(response)].lower()
             else:
-                print("Invalid answer. Please enter a number from 1-3 or a letter from a-c.")
+                print("Invalid answer. Please enter a letter from a-c.")
         elif response.isnumeric():
             response = int(response) - 1
             if response < 3:
                 response = question[2][response].lower()
             else:
-                print("Invalid answer. Please enter a number from 1-3 or a letter from a-c")
+                print("Invalid answer. Please enter letter from a-c")
 
         if response == Quiz[Qnum][1].lower():
             print(f"{Fore.LIGHTGREEN_EX}Correct!{Fore.RESET}")
@@ -46,4 +52,8 @@ def quiz(Quiz):
         else:
             print(f"{Fore.LIGHTRED_EX}Incorrect…{Fore.RESET}")
 
-    print("Congratulations! You completed the quiz.")
+    if last == False:
+        print("Congratulations! You completed the quiz. Now press Enter to go to the next maze.")
+        input()
+    else:
+        print("You now understand the Muslim culture. You see why they wear different clothing like hijabs and why they don't eat non-Halal foods like pork.")

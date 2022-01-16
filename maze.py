@@ -20,7 +20,7 @@ Outside |____________|          |             |
         |___|___________________|_____________|
 '''
 
-mapstr = '''
+locationstr = '''
 S..........
 .I......|.I
 .______....
@@ -33,8 +33,7 @@ S..........
 ....I...|..
 ..........Q'''
 
-mapl = mapstr.splitlines()
-
+locationl = locationstr.splitlines()
 housel = housestr.splitlines()
 
 def strToList(mlstring):
@@ -43,7 +42,7 @@ def strToList(mlstring):
         array[i] = list(array[i])
     return array
 
-area = strToList(mapstr)
+location = strToList(locationstr)
 house = strToList(housestr)
 
 def ShowMap(map, sep):
@@ -107,7 +106,7 @@ def maze(map, template, pX, pY, sep = True, text = None):
                 print(info)
 
             if template[oldY][oldX] == "I":
-                updateMap(map, oldX, oldY, "O", sep)
+                updateMap(map, oldX, oldY, ".", sep)
                 trow = list(template[oldY])
                 trow[oldX] = "O"
                 trow = "".join(trow)
