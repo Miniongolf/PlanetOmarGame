@@ -4,7 +4,6 @@ import quiz
 upl = "\033[A"
 mapstr = '''
 ...........
-...........
 .I......|.I
 .______....
 ........|..
@@ -45,7 +44,7 @@ def updateMap(map, x, y, symb):
 def maze(map, template, text):
     pX, pY = 5, 6
     oldX, oldY = 5, 6
-    maxX, maxY, minX, minY = len(map[0])+1, len(map)+1, 0, 0
+    maxX, maxY, minX, minY = 10, len(map), 0, 1
     # empty = " .#"
     solid = "_|"
     updateMap(map, pX,pY,'@')
@@ -56,9 +55,6 @@ def maze(map, template, text):
         tempoldY = pY
         # Get the player input
         key = getkey()
-        if str(map[pY+1]) not in solid:
-            if str(map[pY+1][pX]) not in solid:
-                pass
         if (key == "w" or key == keys.UP) and pY > minY:
             if map[pY-1][pX] not in solid:
                 pY -= 1
@@ -67,7 +63,7 @@ def maze(map, template, text):
             if map[pY][pX-1] not in solid:
                 pX -= 1
                 PosUpdate = True
-        if (key == "s" or key == keys.DOWN) and pY < maxY:
+        if (key == "s" or key == keys.DOWN) and pY < maxY - 1:
             if map[pY+1][pX] not in solid:
                 pY += 1
                 PosUpdate = True
@@ -95,5 +91,3 @@ def maze(map, template, text):
                 template[oldY] = trow
             else:
                 updateMap(map, oldX, oldY, template[oldY][oldX])
-                
-        

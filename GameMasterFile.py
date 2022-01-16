@@ -33,8 +33,6 @@ clothingInfo = ["Information slide 1", "Information slide 2", "Information slide
 # tutorials.fightTutorial()
 # turnBattle.fight(3, p, e)
 os.system("clear")
-tutorials.mazeTutorial()
+# tutorials.mazeTutorial()
 maze.maze(maze.area, maze.mapl[:], clothingInfo)
 quiz.quiz(quiz.clothingQuiz)
-
-
