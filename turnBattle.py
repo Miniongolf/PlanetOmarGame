@@ -40,16 +40,16 @@ def cpu(p, e):
 def pickEnemy(p, e):
     enum = randint(1,2)
     eacc = uniform(0.1, 0.25)
-    ehp = randint(40,60)
+    ehp = randint(10,15)
     if enum == 1:
-        e = {"name": "Zombie",
+        e = {"name": "Anger",
         "melee": randint(5,9), 
         "ranged": 0,
         "hp":ehp+10,
         "accuracy":eacc}
         
     elif enum == 2:
-        e = {"name": "Skeleton",
+        e = {"name": "Frustration",
         "melee": 0, 
         "ranged": randint(3,7),
         "hp":ehp,
@@ -85,7 +85,7 @@ def fight(count, p, e):
         # While it's still the player's turn (they haven't entered a valid input)
         while validInput == False:
             acc = random()
-            move = input()
+            move = input("What action would you like to use now (1, 2, or 3)?\n")
             print(upl*2)
             # If the move is a melee move
             if move.isnumeric():

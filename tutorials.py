@@ -1,4 +1,4 @@
-from os import system
+import os
 import sys, time
 
 from colorama import Fore, Style
@@ -17,25 +17,36 @@ def pwait(string, delay = 0, split = False):
     time.sleep(delay)
 
 def introduction(user):
-    system("clear")
-    pwait(f"Hello, {user}! Welcome to the {green}Planet Omar Adventure Game!{fr}", 1, True)
+    os.system("clear")
+    pwait(f"Hello, {user}! Welcome to the {green}Planet Omar Adventure Game{fr}!", 1, True)
     pwait("Here, you will play the role of Omar's grouchy neighbour.", 1, True)
     pwait("Enjoy!", 2)
-    system("clear")
+    os.system("clear")
 
 def houseTutorial():
-    system("clear")
+    os.system("clear")
     pwait("You wake up to the beeping of a truck backing up.", 0.75, True)
     pwait("Still half asleep, you sigh, rubbing your eyes.", 0.75, True)
     pwait("You decide to go outside to check out what's happening.", 1, True)
-    system('clear')
-    pwait("Use arrow keys or \"wasd\" to move around the house! Try going to the bathroom first.", 0, True)
+    os.system('clear')
+    pwait("Use arrow keys or wasd to move around the house! Go outside and hit the checkmark.", 0.2, True)
+    pwait("Your character is the \"@\" symbol in the bedroom.", 0, True)
 
 def fightTutorial():
-    system("clear")
-    pwait(f"You see your neighbours moving in. {bold}They're muslim.{fr} You know to treat everyone equally. \nYou know it's wrong to discriminate based on religion. But you can't help it. \nYou try as hard as you can to fight back the negativity assaulting your mind.")
-    pwait("You can defend yourself psychologically using these 4 attacks:")
-    pwait("(1) Counting down (3 damage, 95% accuracy) \n(2) stab (7 damage, 70% accuracy) \n(3) slash (12 damage, 50% accuracy) \n(4) block (Take 20 damage less on the next turn) \n(5) heal (+20 hp)\n")
+    os.system("clear")
+    pwait(f"You see your neighbours moving in. {bold}They're Muslim.{fr} You know to treat everyone with respect. \nYou know it's wrong to discriminate based on religion. But you can't help it. \nYou try as hard as you can to fight back the negativity.")
+    pwait("\nYou can defend yourself using these 3 actions.")
+    pwait("(1) Counting to 5 (3 damage, 95% accuracy) \n(2) Deep breaths (7 damage, 70% accuracy) \n(3) Happy thoughts (12 damage, 50% accuracy)\n")
+    pwait("Some actions do more damage than others, but are less accurate.", split=True)
+    pwait("Type in 1, 2, or 3 to select your move, then press enter to confirm.\n\n")
 
 def mazeTutorial():
-    pwait("Use arrow keys or wasd to move your character", 1, True)
+    pwait("You are the \"@\" in the top-left of the maze. Use arrow keys or wasd to move through the maze\nto the \"I\"s to get information about Muslim culture. Then go to the \"Q\" to start the quiz.", 1, True)
+
+def quizTutorial():
+    os.system("clear")
+    time.sleep(0.5)
+    os.system("clear")
+    pwait("You will be presented with a multiple choice quiz with 3 options.", 0.5, True)
+    pwait("Type in a, b, or c to select your answer and press enter to confirm.", 1, True)
+    os.system("clear")

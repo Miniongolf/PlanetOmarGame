@@ -2,9 +2,9 @@
 # (block, heal)
 
 attacks = {
-    "Counting down":(3,0.95),
-    "stab":(7,0.7),
-    "slash":(12,0.5),
+    "Counting down":(5,1),
+    "stab":(7,0.9),
+    "slash":(12,0.8),
 }
 
 misc = {

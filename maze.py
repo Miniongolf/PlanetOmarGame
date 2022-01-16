@@ -1,9 +1,27 @@
+from cgitb import reset
 from getkey import getkey, keys
-import random
-import quiz
+from colorama import Fore
+
 upl = "\033[A"
+
+housestr = '''
+         ______________________________        
+        |            |                 |       
+        |            |                 |       
+        |            '     Bedroom     |       
+        |  Bathroom  |                 |       
+        |            |                 |       
+        |            |____. .__________|_______
+Outside |____________|          |             |
+        |   |                   |             |
+        |   |                   '   Kitchen   |
+√       ' E '      Hallway      |             |
+        |   |                   |             |
+        |___|___________________|_____________|
+'''
+
 mapstr = '''
-...........
+S..........
 .I......|.I
 .______....
 ........|..
@@ -17,6 +35,7 @@ mapstr = '''
 
 mapl = mapstr.splitlines()
 
+housel = housestr.splitlines()
 
 def strToList(mlstring):
     array = mlstring.splitlines()
@@ -25,31 +44,35 @@ def strToList(mlstring):
     return array
 
 area = strToList(mapstr)
-def ShowMap(map):
+house = strToList(housestr)
+
+def ShowMap(map, sep):
     print(upl*(len(map)+2))
     # os.system("clear") is slower, creating delay between the player's movements.
     for i in range(len(map)):
-        print(*map[i])
+        if sep == True:
+            print(*map[i])
+        else:
+            print(*map[i], sep="")
 
 
 
 
 
-def updateMap(map, x, y, symb):
+def updateMap(map, x, y, symb, sep):
     map[y][x] = symb
-    ShowMap(map)
+    ShowMap(map, sep)
 
 
 
-def maze(map, template, text):
-    pX, pY = 5, 6
-    oldX, oldY = 5, 6
-    maxX, maxY, minX, minY = 10, len(map), 0, 1
+def maze(map, template, pX, pY, sep = True, text = None):
+    oldX, oldY = pX+0, pY+0
+    maxX, maxY, minX, minY = len(template[1])-1, len(map), 0, 1
     # empty = " .#"
     solid = "_|"
-    updateMap(map, pX,pY,'@')
+    updateMap(map, pX,pY,'@', sep)
 
-    while template[pY][pX] != "Q":
+    while template[pY][pX] not in "Q√":
         PosUpdate = False
         tempoldX = pX
         tempoldY = pY
@@ -74,20 +97,20 @@ def maze(map, template, text):
         
         if PosUpdate == True:
             oldX, oldY = tempoldX + 0, tempoldY + 0
-            updateMap(map, pX,pY,'@')
+            updateMap(map, pX,pY,'@', sep)
             if template[pY][pX] == "I":
                 if text != []:
-                    info = random.choice(text)
+                    info = text[0]
                     text.remove(info)
                 else:
                     print("You have all the information you need. Go to the Q to take the Quiz!")
                 print(info)
 
             if template[oldY][oldX] == "I":
-                updateMap(map, oldX, oldY, "O")
+                updateMap(map, oldX, oldY, "O", sep)
                 trow = list(template[oldY])
                 trow[oldX] = "O"
                 trow = "".join(trow)
                 template[oldY] = trow
             else:
-                updateMap(map, oldX, oldY, template[oldY][oldX])
+                updateMap(map, oldX, oldY, template[oldY][oldX], sep)

@@ -26,13 +26,18 @@ e = {
     "accuracy": 0
 }
 
+
+
 clothingInfo = ["Information slide 1", "Information slide 2", "Information slide 3"]
 
 
 # tutorials.introduction(user)
+# tutorials.houseTutorial()
+# maze.maze(maze.house, maze.housel[:], 36, 3, sep = False)
 # tutorials.fightTutorial()
-# turnBattle.fight(3, p, e)
+# turnBattle.fight(1, p, e)
 os.system("clear")
-# tutorials.mazeTutorial()
-maze.maze(maze.area, maze.mapl[:], clothingInfo)
+tutorials.mazeTutorial()
+maze.maze(maze.area, maze.mapl[:], 0, 1, text=clothingInfo)
+tutorials.quizTutorial()
 quiz.quiz(quiz.clothingQuiz)
