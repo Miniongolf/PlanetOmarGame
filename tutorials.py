@@ -18,7 +18,7 @@ def pwait(string, delay = 0, split = False, end="\n"):
 
 def introduction(user):
     os.system("clear")
-    pwait(f"Hello, {user}! Welcome to the {green}Planet Omar Adventure Game{fr}!", 1, split=True)
+    pwait(f"Hello, {user}! Welcome to {green}Mrs Rogers' Reform{fr}!", 1, split=True)
     pwait("Here, you will play the role of Omar's grouchy neighbour.", 1, split=True)
     pwait("Enjoy!", 2)
     os.system("clear")
