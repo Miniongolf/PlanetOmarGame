@@ -10,7 +10,7 @@ def pwait(string, delay = 0, split = False, end="\n"):
         for char in string:
             sys.stdout.write(char)
             sys.stdout.flush()
-            time.sleep(0.025)
+            time.sleep(0.05)
         print(end)
     else:
         print(string, end=end)
