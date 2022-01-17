@@ -1,5 +1,4 @@
-import os
-import maze, moveStats, quiz, turnBattle, tutorials
+import os, time, maze, moveStats, quiz, turnBattle, tutorials
 from colorama import Fore, Style
 
 global all
@@ -35,25 +34,29 @@ foodInfo = [" - Muslims can only eat Halal food (e.g. lamb, beef, chicken).", " 
 clothingInfo = [" - Muslim men wear ghutras on their heads.", " - Muslim women wear hijabs (headscarves) to maintain modesty.", " - Muslims dress modestly to respect and be connected to their religion."]
 
 
-# tutorials.introduction(user)
-# tutorials.houseTutorial()
-# maze.maze(maze.house, maze.housel[:], 36, 3, sep = False)
-# tutorials.fightTutorial()
-# turnBattle.fight(1, p, e)
-# os.system("clear")
-# tutorials.mazeTutorial()
-# maze.maze(maze.location, maze.locationl[:], 0, 1, text=locationInfo)
-# tutorials.quizTutorial()
-# points = quiz.quiz(quiz.locationQuiz, points)
+tutorials.introduction(user)
+tutorials.houseTutorial()
+maze.maze(maze.house, maze.housel[:], 36, 3, sep = False)
+tutorials.fightTutorial()
+turnBattle.fight(1, p, e)
 os.system("clear")
-# tutorials.mazeTutorial()
-# maze.maze(maze.location, maze.locationl[:], 0, 1, text=foodInfo)
-# os.system("clear")
+tutorials.mazeTutorial()
+maze.maze(maze.location, maze.locationl[:], 0, 1, text=locationInfo)
+tutorials.quizTutorial()
+points = quiz.quiz(quiz.locationQuiz, points)
+os.system("clear")
+tutorials.mazeTutorial()
+maze.maze(maze.food, maze.foodl[:], 0, 1, text=foodInfo)
+os.system("clear")
 points = quiz.quiz(quiz.foodQuiz, points)
 os.system("clear")
-maze.maze(maze.location, maze.locationl[:], 0, 1, text=clothingInfo)
+maze.maze(maze.clothing, maze.clothingl[:], 0, 1, text=clothingInfo)
 os.system("clear")
 points = quiz.quiz(quiz.clothingQuiz, points, last=True)
-
+os.system("clear")
+points = tutorials.ending(user, points)
+time.sleep(2)
+os.system("clear")
+print(f"{lgreen}Congratulations{fr}! You finished the game with {points} points! Well done!")
 
 

@@ -1,6 +1,9 @@
-from cgitb import reset
+import copy
 from getkey import getkey, keys
-from colorama import Fore
+from colorama import Fore, Style
+
+green, red, yellow, lgreen, lred, lyellow, lmagenta, cr = Fore.GREEN, Fore.RED, Fore.YELLOW, Fore.LIGHTGREEN_EX, Fore.LIGHTRED_EX, Fore.LIGHTYELLOW_EX, Fore.LIGHTMAGENTA_EX, Fore.RESET
+bold, fr = Style.BRIGHT, Style.RESET_ALL
 
 upl = "\033[A"
 
@@ -33,8 +36,36 @@ S..........
 ....I...|..
 ..........Q'''
 
-locationl = locationstr.splitlines()
+foodstr = '''
+S..........
+.I......|.I
+.______....
+........|..
+........|..
+........|..
+...........
+........|..
+........|..
+....I...|__
+..........Q'''
+
+clothingstr = '''
+S..........
+.I......|.I
+.______....
+........|..
+........|..
+........|..
+........|..
+........|..
+........|..
+....I...|..
+..........Q'''
+
 housel = housestr.splitlines()
+locationl = locationstr.splitlines()
+foodl = foodstr.splitlines()
+clothingl = clothingstr.splitlines()
 
 def strToList(mlstring):
     array = mlstring.splitlines()
@@ -42,8 +73,10 @@ def strToList(mlstring):
         array[i] = list(array[i])
     return array
 
-location = strToList(locationstr)
 house = strToList(housestr)
+location = strToList(locationstr)
+food = strToList(foodstr)
+clothing = strToList(clothingstr)
 
 def ShowMap(map, sep):
     print(upl*(len(map)+2))
@@ -103,7 +136,7 @@ def maze(map, template, pX, pY, sep = True, text = None):
                     text.remove(info)
                 else:
                     print("You have all the information you need. Go to the Q to take the Quiz!")
-                print(info)
+                print(lgreen, info, fr)
 
             if template[oldY][oldX] == "I":
                 updateMap(map, oldX, oldY, ".", sep)
