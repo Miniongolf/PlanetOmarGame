@@ -38,7 +38,7 @@ def fightTutorial():
     pwait("\nYou can defend yourself using these 3 actions.")
     pwait("(1) Counting to 5 (3 damage, 95% accuracy) \n(2) Deep breaths (7 damage, 70% accuracy) \n(3) Happy thoughts (12 damage, 50% accuracy)\n")
     pwait("Some actions do more damage than others, but are less accurate.", split=True)
-    pwait("Type in 1, 2, or 3 to select your move, then press enter to confirm.\n\n")
+    pwait("Type in 1, 2, or 3 to select your move, then press enter to confirm. Keep attacking until the enemy is defeated.\n\n")
 
 def mazeTutorial():
     pwait("You are the \"@\" in the top-left of the maze. Use arrow keys or wasd to move through the maze\nto the \"I\"s to get information about Muslim culture. Then go to the \"Q\" to start the quiz.", 1, True)
@@ -50,3 +50,7 @@ def quizTutorial():
     pwait("You will be presented with a multiple choice quiz with 3 options.", 0.5, True)
     pwait("Type in a, b, or c to select your answer and press enter to confirm.", 1, True)
     os.system("clear")
+
+def ending():
+    pwait("You now understand the Muslim culture. You see why they wear different clothing like hijabs and why they don't eat non-Halal foods like pork.", split=True)
+    pwait("")

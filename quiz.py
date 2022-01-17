@@ -23,7 +23,7 @@ clothingQuiz = [["What is one type of traditional clothing female Muslims wear?"
 
 festivalsQuiz = [["During what festival do Muslims need to fast after sunrise to sunset?", "Ramadan", ["Ramadan", "Eid-ul-Fitr", "Al Hijra"]]]
 
-def quiz(Quiz, last=False):
+def quiz(Quiz, points, last=False):
     letters = "abcdefghijklmnopqrstuvwxyz"
 
     Qnums = list(range(len(Quiz)))
@@ -49,11 +49,12 @@ def quiz(Quiz, last=False):
         if response == Quiz[Qnum][1].lower():
             print(f"{Fore.LIGHTGREEN_EX}Correct!{Fore.RESET}")
             Qnums.remove(Qnum)
+            points += 6
         else:
             print(f"{Fore.LIGHTRED_EX}Incorrect…{Fore.RESET}")
+            points -= 1
 
     if last == False:
         print("Congratulations! You completed the quiz. Now press Enter to go to the next maze.")
         input()
-    else:
-        print("You now understand the Muslim culture. You see why they wear different clothing like hijabs and why they don't eat non-Halal foods like pork.")
+    return points

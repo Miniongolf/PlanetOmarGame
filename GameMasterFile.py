@@ -11,6 +11,8 @@ colours = {"green": green, "red": red, "yellow": yellow, "lgreen": lgreen, "lred
 
 upl = "\033[A"
 
+points = 0
+
 user = input("What do you want me to call you?\n")
 print("")
 p = {
@@ -42,14 +44,16 @@ clothingInfo = [" - Muslim men wear ghutras on their heads.", " - Muslim women w
 # tutorials.mazeTutorial()
 # maze.maze(maze.location, maze.locationl[:], 0, 1, text=locationInfo)
 # tutorials.quizTutorial()
-# quiz.quiz(quiz.locationQuiz)
+# points = quiz.quiz(quiz.locationQuiz, points)
 os.system("clear")
 # tutorials.mazeTutorial()
 # maze.maze(maze.location, maze.locationl[:], 0, 1, text=foodInfo)
 # os.system("clear")
-# quiz.quiz(quiz.foodQuiz)
+points = quiz.quiz(quiz.foodQuiz, points)
+os.system("clear")
 maze.maze(maze.location, maze.locationl[:], 0, 1, text=clothingInfo)
 os.system("clear")
-quiz.quiz(quiz.clothingQuiz, last=True)
+points = quiz.quiz(quiz.clothingQuiz, points, last=True)
+
 
 
