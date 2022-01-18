@@ -86,15 +86,9 @@ def ShowMap(map, sep):
         else:
             print(*map[i], sep="")
 
-
-
-
-
 def updateMap(map, x, y, symb, sep):
     map[y][x] = symb
     ShowMap(map, sep)
-
-
 
 def maze(map, template, pX, pY, sep = True, text = None):
     oldX, oldY = pX+0, pY+0

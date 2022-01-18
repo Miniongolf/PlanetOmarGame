@@ -1,11 +1,6 @@
 from random import choice, shuffle
 from colorama import Fore
 
-
-# Quiz = [[Question, Answer, [Option 1, Option 2, Option 3]],
-# [Question, Answer, [Option 1, Option 2, Option 3]],
-# [Question, Answer, [Option 1, Option 2, Option 3]]]
-
 QandA = [["What country is Ottawa in?", "Canada", ["Canada", "USA", "France"]],
 ["What is the chemical equation of water?", "H2O", ["NaCl", "H2O", "Fl"]],
 ["What letter comes after A?", "B", ["D", "F", "B"]],
