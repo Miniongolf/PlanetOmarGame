@@ -1,7 +1,6 @@
-import os, time, maze, moveStats, quiz, turnBattle, tutorials
+import os, time, maze, quiz, turnBattle, tutorials
 from colorama import Fore, Style
 
-global all
 # Simplify the colours from Colorama
 green, red, yellow, lgreen, lred, lyellow, lmagenta, cr = Fore.GREEN, Fore.RED, Fore.YELLOW, Fore.LIGHTGREEN_EX, Fore.LIGHTRED_EX, Fore.LIGHTYELLOW_EX, Fore.LIGHTMAGENTA_EX, Fore.RESET
 bold, fr = Style.BRIGHT, Style.RESET_ALL

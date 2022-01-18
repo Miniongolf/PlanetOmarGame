@@ -1,4 +1,3 @@
-import copy
 from getkey import getkey, keys
 from colorama import Fore, Style
 
