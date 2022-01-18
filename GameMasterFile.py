@@ -14,6 +14,8 @@ points = 0
 
 user = input("What do you want me to call you?\n")
 print("")
+
+# Initialize player and enemy
 p = {
     "name": user,
     "defence": 0,
@@ -27,6 +29,7 @@ e = {
     "accuracy": 0
 }
 
+# Create all the info lists for the mazes.
 locationInfo = [" - Muslims live all over the world.", " - Muslims worship one and only one god called Allah.", " - The majority of Muslims live in the Middle East, Asia, and Africa. But Muslims live around the world like in Canada and USA."]
 
 foodInfo = [" - Muslims can only eat Halal food (e.g. lamb, beef, chicken).", " - Muslims cannot eat pork or blood, or animals that harm other animals", " - Muslims eat Halal foods to follow their God's rules (as set in the Qur'an)."]
